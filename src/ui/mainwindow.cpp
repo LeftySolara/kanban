@@ -5,6 +5,10 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    QCoreApplication::setOrganizationName("Jalen Adams");
+    QCoreApplication::setApplicationName("kanban");
+    QCoreApplication::setOrganizationDomain("jalenkadams.me");
+
     ui->setupUi(this);
 }
 
