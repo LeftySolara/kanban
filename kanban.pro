@@ -18,9 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         src/main.cpp \
+        src/card.cpp \
+        src/kanlist.cpp \
         src/ui/mainwindow.cpp
 
 HEADERS += \
+        src/card.h \
+        src/kanlist.h \
         src/ui/mainwindow.h
 
 FORMS += \

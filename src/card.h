@@ -1,5 +1,5 @@
 /******************************************************************************
- * mainwindow.h : functions for managing the main application window
+ * card.h : a kanban card
  * ****************************************************************************
  * Copyright (C) 2018 Jalen Adams
  *
@@ -21,31 +21,21 @@
  * along with kanban.  If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
 
-#include <QMainWindow>
-#include "kanlist.h"
-#include "card.h"
+#ifndef CARD_H
+#define CARD_H
 
-namespace Ui {
-class MainWindow;
-}
+#include <QObject>
 
-class MainWindow : public QMainWindow
+
+class Card : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    Card();
 
-private slots:
-    void on_actionQuit_triggered();
-    void on_actionAboutQt_triggered();
-
-private:
-    Ui::MainWindow *ui;
+    QString content;  /* The text that gets displayed in the list view. */
 };
 
-#endif // MAINWINDOW_H
+#endif // CARD_H

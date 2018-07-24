@@ -1,5 +1,5 @@
 /******************************************************************************
- * mainwindow.h : functions for managing the main application window
+ * kanlist.cpp : A list that holds kanban cards
  * ****************************************************************************
  * Copyright (C) 2018 Jalen Adams
  *
@@ -21,31 +21,31 @@
  * along with kanban.  If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
 
-#include <QMainWindow>
 #include "kanlist.h"
-#include "card.h"
 
-namespace Ui {
-class MainWindow;
+KanList::KanList()
+{
+    /* A test card for prototyping */
+    Card *card = new Card();
+    card->content = "The quick brown fox jumps over the lazy dog.";
+
+    this->cards.append(card);
 }
 
-class MainWindow : public QMainWindow
+KanList::~KanList()
 {
-    Q_OBJECT
+    for (Card *card : this->cards)
+        delete card;
+}
 
-public:
-    explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
 
-private slots:
-    void on_actionQuit_triggered();
-    void on_actionAboutQt_triggered();
+int KanList::rowCount(const QModelIndex &parent=QModelIndex()) const
+{
+    return 0;
+}
 
-private:
-    Ui::MainWindow *ui;
-};
-
-#endif // MAINWINDOW_H
+QVariant KanList::data(const QModelIndex &index, int role=Qt::DisplayRole) const
+{
+    return QVariant::Invalid;
+}
