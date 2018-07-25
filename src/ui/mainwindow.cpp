@@ -34,11 +34,21 @@ MainWindow::MainWindow(QWidget *parent) :
     QCoreApplication::setOrganizationDomain("jalenkadams.me");
 
     ui->setupUi(this);
+
+    card = new Card(this, "Hello world!", "This is a sample card");
+    card2 = new Card(this, "Another sample", "The quick brown fox jumps over the lazy dog");
+
+    cards = ui->cardLayout;
+    cards->addWidget(card);
+    cards->addWidget(card2);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete card;
+    delete card2;
+    delete cards;
 }
 
 void MainWindow::on_actionQuit_triggered()

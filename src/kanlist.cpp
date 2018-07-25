@@ -28,8 +28,6 @@ KanList::KanList()
 {
     /* A test card for prototyping */
     Card *card = new Card();
-    card->content = "The quick brown fox jumps over the lazy dog.";
-
     this->cards.append(card);
 }
 

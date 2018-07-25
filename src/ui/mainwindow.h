@@ -25,6 +25,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QVBoxLayout>
 #include "kanlist.h"
 #include "card.h"
 
@@ -46,6 +47,10 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    Card *card;
+    Card *card2;
+    QVBoxLayout *cards;
 };
 
 #endif // MAINWINDOW_H

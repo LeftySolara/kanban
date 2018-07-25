@@ -21,10 +21,27 @@
  * along with kanban.  If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-
 #include "card.h"
+#include "ui_card.h"
 
-Card::Card()
+Card::Card(QWidget *parent, QString title, QString desctiption) :
+    QFrame(parent),
+    ui(new Ui::Card)
 {
-    this->content = "";
+    ui->setupUi(this);
+
+    this->title = ui->title;
+    this->description = ui->description;
+    this->tags = new QStringList;
+
+    this->title->setText(title);
+    this->description->setText(desctiption);
+}
+
+Card::~Card()
+{
+    delete ui;
+    delete tags;
+    delete title;
+    delete description;
 }

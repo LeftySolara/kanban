@@ -21,21 +21,30 @@
  * along with kanban.  If not, see <http://www.gnu.org/licenses/>.
  ***************************************************************************/
 
-
 #ifndef CARD_H
 #define CARD_H
 
-#include <QObject>
+#include <QFrame>
+#include <QLabel>
 
+namespace Ui {
+class Card;
+}
 
-class Card : public QObject
+class Card : public QFrame
 {
     Q_OBJECT
 
 public:
-    Card();
+    explicit Card(QWidget *parent = nullptr, QString title="", QString description="");
+    ~Card();
 
-    QString content;  /* The text that gets displayed in the list view. */
+private:
+    Ui::Card *ui;
+
+    QLabel *title;
+    QLabel *description;
+    QStringList *tags;
 };
 
 #endif // CARD_H
